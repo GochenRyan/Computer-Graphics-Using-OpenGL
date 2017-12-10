@@ -1,4 +1,4 @@
-/*Jongkhurun于2017.12.9
+/*Jongkhurun-2017.12.10
 怎么产生"随机"的随机数？
 怎么实现颜色不同的点？
 怎么实现其他形状？
@@ -21,11 +21,16 @@ typedef struct GLpoint {
 }GLpoint;
 
 
+////获得随机数
+//static int seed = time(null);
+//int getrandnum(int min, int max) {
+//	srand(seed);
+//	seed = rand();
+//	return (min + rand() % (max - min + 1));
+//}
+
 //获得随机数
-static int seed = time(NULL);
 int getRandNum(int min, int max) {
-	srand(seed);
-	seed = rand();
 	return (min + rand() % (max - min + 1));
 }
 
@@ -49,6 +54,8 @@ void myInit(void) {
 void Sierpinski_render(void) {
 	glClear(GL_COLOR_BUFFER_BIT);
 	GLpoint T[4] = { { 100,100 } ,{ 600,100 },{ 300,300 },};
+	srand((unsigned int)time(NULL));
+
 	int render = getRandNum(0,2);		//产生0~2的随机数
 	GLpoint point = T[render];
 	drawDot(point);
