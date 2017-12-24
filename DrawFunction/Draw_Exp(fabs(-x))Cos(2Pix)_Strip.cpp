@@ -21,7 +21,7 @@ void myInit(void) {
 
 void myDisplay() {
 	glClear(GL_COLOR_BUFFER_BIT);		//清屏
-	glBegin(GL_LINE_STRIP);		//画独立的点
+	glBegin(GL_LINE_STRIP);		//画折线
 	for (GLdouble x = -1; x < 1; x += 0.005) {
 		//printf("%f\n", fabs(-x));
 		GLdouble func = exp(fabs(-x)) * cos(2 * 3.14159265 * x);
